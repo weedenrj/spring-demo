@@ -12,12 +12,15 @@ import com.example.api.model.RandomNumber;
 @RestController
 public class RandomNumberController {
 
-	private static final String template = "Hello, %s!";
 	private final AtomicLong counter = new AtomicLong();
   private final Random rand = new Random();
 
 	@GetMapping("/random")
 	public RandomNumber random(@RequestParam(value = "maxInt", defaultValue = "1000") int maxInt) {
+		return new RandomNumber(counter.incrementAndGet(), rand.nextInt(maxInt));
+	}
+  @GetMapping("/")
+	public RandomNumber home(@RequestParam(value = "maxInt", defaultValue = "1000") int maxInt) {
 		return new RandomNumber(counter.incrementAndGet(), rand.nextInt(maxInt));
 	}
 }
