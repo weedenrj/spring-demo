@@ -3,11 +3,13 @@ services:
     build: ./producer-service
     ports:
       - "8083:8083"
-      
+
   consumer:
     build: ./consumer-service
     ports:
       - "8080:8080"
+    restart: on-failure
     depends_on:
       - producer
+
  

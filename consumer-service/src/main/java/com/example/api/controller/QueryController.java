@@ -20,7 +20,7 @@ public class QueryController {
   public RandomNumber home() {
     RestTemplate restTemplate = new RestTemplate();
 
-    String uri = "http://localhost:8083";
+    String uri = "http://producer:8083";
 
     HttpHeaders headers = new HttpHeaders();
     headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));

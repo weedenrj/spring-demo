@@ -31,7 +31,7 @@ public class ConsumerServiceApplication {
   public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
     return args -> {
       RandomNumber randNum = restTemplate.getForObject(
-          "http://localhost:8083/random", RandomNumber.class);
+          "http://producer:8083/random", RandomNumber.class);
       log.info(randNum.toString());
     };
   }
